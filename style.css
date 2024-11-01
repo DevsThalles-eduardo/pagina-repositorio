@@ -18,7 +18,10 @@ html, body{
 }
 
 #main{
-    display: flex;      
+    display: flex;  
+    justify-content: center;    
+    align-items: center;
+    margin-top: 70px;
 }
 
 #card{
@@ -31,6 +34,7 @@ html, body{
     height: 500px;
     border-radius: 5px;
     gap: 15px ;
+    z-index: 1;
 
 
 }
@@ -81,6 +85,7 @@ p{
     height: 25px;
     border-radius: 5px;
     cursor: pointer;
+    
    }
 
 
@@ -99,35 +104,67 @@ a:hover{
     font-weight: 700;
 }
 
-.espaco{
-    display: flex;
-    width: 10px;
-    background-color: aliceblue;
+.botao-puxar {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: hsl(0, 0%, 20%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Transição suave */
 }
 
-/*cabecalho do site*/
-
-#main1{
-    display: flex;
-    width: 100%;
-    height: 500px;
-    background-color:hsl(0, 0%, 12%);
-    gap: 10px;
-
+.botao-puxar:hover {
+    transform: translateX(10px); /* Move o botão 10px para a direita */
+    background-color: hsl(75, 94%, 57%);
+    color: black;
+    font-weight: 600;
 }
 
-.cabecalho{
+
+
+.fundo-tecnologico {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    background-color: #0a0a0a;
 }
 
-.cabecalho h1{
-    font-size: 40px;
-    background:linear-gradient(50deg, red, orange);
-    -webkit-background-clip: text;
-    color: transparent;
+.particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #00ffcc;
+    border-radius: 50%;
+    animation: move 2s linear infinite;
+    opacity: 0.8;
 }
+
+@keyframes move {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(calc(100vw * (var(--dir-x)))) translateY(calc(100vh * (var(--dir-y))));
+        opacity: 0;
+    }
+}
+
+
+
+
+
 
 
